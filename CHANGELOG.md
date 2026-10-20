@@ -2,25 +2,17 @@
 
 ## 1.0.0
 
-First public release.
+Initial public release of Proxya Desktop for Windows x64 and macOS Apple Silicon.
 
-- Whole-machine tunnel through a TUN adapter, for TCP and UDP, with DNS
-  intercepted and QUIC carried when the proxy relays UDP.
-- System proxy mode for machines where a service is not wanted or another VPN
-  is already running.
-- Routing by program and by site, with the local network and Russian sites able
-  to stay direct.
-- Masking, which sends the handshake to the proxy in pieces so that a provider
-  reading the destination address out of a single packet finds nothing. This is
-  what makes Telegram work on networks where a plain proxy connection dies.
-- Kill switch on Windows, built on the Windows Filtering Platform. While it is
-  armed nothing leaves the machine outside the adapter.
-- Proxy probing before every connection, covering login, the UDP relay and the
-  country of the exit.
-- Proxya account sign-in with a password or with Google, bringing datacenter,
-  ISP and mobile orders into the app and generating residential proxies against
-  a GB balance.
-- English, Russian and Chinese, switched without a restart.
-- On macOS the service takes over the system DNS while the tunnel is up and
-  restores the previous servers afterwards, with a copy on disk so a crash
-  cannot leave the machine without a resolver.
+- Added TUN tunneling for TCP and supported UDP/QUIC traffic.
+- Added system proxy mode for compatible applications.
+- Added split tunneling by application, website, IP address and local network.
+- Added residential SOCKS5 proxy generation with country selection, a sticky
+  IP or rotation, and optional UDP support.
+- Added Proxya account sign-in by password or Google, with access to active
+  datacenter, ISP and mobile orders and the residential traffic balance.
+- Added proxy authentication, UDP relay and exit location checks.
+- Added DNS over HTTPS and optional proxy handshake masking.
+- Added a Windows kill switch using Windows Filtering Platform.
+- Added DNS configuration and restoration for tunnel mode on macOS.
+- Added English, Russian and Chinese interface languages.
