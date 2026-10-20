@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://proxya.co/contact
+    about: Report a vulnerability or a leak privately. Do not open a public issue.
+  - name: Support and billing
+    url: https://proxya.co/contact
+    about: Account, orders and payment questions.

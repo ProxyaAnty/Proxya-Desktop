@@ -1,0 +1,67 @@
+name: Bug report
+description: Something in the desktop application does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste real proxy credentials, account data or a live session.
+        An address from a documentation range is enough to describe a shape.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: From Settings, at the bottom of the screen
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Windows x64
+        - macOS Apple Silicon
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Connection mode
+      options:
+        - Tunnel
+        - System proxy
+    validations:
+      required: true
+  - type: dropdown
+    id: proxy
+    attributes:
+      label: Proxy type
+      options:
+        - SOCKS5
+        - HTTP
+        - Residential
+        - Mobile
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Tunnel log
+      description: Settings, Copy the tunnel log. Remove anything that identifies you.
+      render: text
+  - type: checkboxes
+    id: context
+    attributes:
+      label: Anything else running
+      options:
+        - label: Another VPN was connected
+        - label: The kill switch was armed
+        - label: Masking was turned off
