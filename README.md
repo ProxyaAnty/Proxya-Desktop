@@ -50,8 +50,8 @@ Download the latest version from
 
 | Platform | Download | Installation guide |
 | --- | --- | --- |
-| Windows x64 | `Proxya_1.1.0_x64-setup.exe` | [Windows installation](docs/windows-installation.md) |
-| macOS Apple Silicon | `Proxya-macos-arm64.dmg` or `Proxya-macos-arm64.tar.gz` | [macOS installation](docs/mac-installation.md), [Russian guide](docs/mac-установка.md) |
+| Windows x64 | [![Download the Windows installer](https://img.shields.io/badge/Download-Windows%20installer-0078D4?style=for-the-badge)](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya_1.1.0_x64-setup.exe)<br><sub>`Proxya_1.1.0_x64-setup.exe`</sub> | [Windows installation](docs/windows-installation.md) |
+| macOS Apple Silicon | [![Download the macOS disk image](https://img.shields.io/badge/Download-macOS%20.dmg-1d1d1f?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya-macos-arm64.dmg)<br><sub>`Proxya-macos-arm64.dmg`, or the [`.tar.gz` archive](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya-macos-arm64.tar.gz)</sub> | [macOS installation](docs/mac-installation.md), [Russian guide](docs/mac-установка.md) |
 
 SHA-256 checksums are included with each release. The Windows installer is
 not Authenticode signed. The macOS app is ad-hoc signed and is not notarized;

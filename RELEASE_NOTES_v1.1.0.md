@@ -23,10 +23,10 @@
 
 ## Downloads
 
-| Platform | Asset | Installation guide |
+| Platform | Download | Installation guide |
 | --- | --- | --- |
-| Windows x64 | `Proxya_1.1.0_x64-setup.exe` | [Windows guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/windows-installation.md) |
-| macOS Apple Silicon | `Proxya-macos-arm64.dmg` or `Proxya-macos-arm64.tar.gz` | [macOS guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/mac-installation.md), [Russian guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/mac-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0.md) |
+| Windows x64 | [![Download the Windows installer](https://img.shields.io/badge/Download-Windows%20installer-0078D4?style=for-the-badge)](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya_1.1.0_x64-setup.exe)<br><sub>`Proxya_1.1.0_x64-setup.exe`</sub> | [Windows guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/windows-installation.md) |
+| macOS Apple Silicon | [![Download the macOS disk image](https://img.shields.io/badge/Download-macOS%20.dmg-1d1d1f?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya-macos-arm64.dmg)<br><sub>`Proxya-macos-arm64.dmg`, or the [`.tar.gz` archive](https://github.com/ProxyaAnty/Proxya-Desktop/releases/download/v1.1.0/Proxya-macos-arm64.tar.gz)</sub> | [macOS guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/mac-installation.md), [Russian guide](https://github.com/ProxyaAnty/Proxya-Desktop/blob/main/docs/mac-%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0.md) |
 
 The Windows installer is not Authenticode signed. The macOS app is ad-hoc
 signed and is not notarized. Follow the relevant installation guide if the
