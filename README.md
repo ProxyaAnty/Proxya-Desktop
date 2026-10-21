@@ -34,7 +34,7 @@ account is optional when adding your own proxies.
   UDP availability, and view the proxy's exit location.
 - **Proxya account:** access active datacenter, ISP and mobile proxy orders
   from the desktop app.
-- **Connection settings:** DNS over HTTPS, optional handshake masking,
+- **Connection settings:** DNS over HTTPS, handshake masking (on by default),
   automatic connection on launch and a Windows kill switch.
 - **Interface languages:** English, Russian and Chinese, with no restart
   required when switching languages.
@@ -50,8 +50,8 @@ Download the latest version from
 
 | Platform | Download | Installation guide |
 | --- | --- | --- |
-| Windows x64 | `Proxya_1.0.0_x64-setup.exe` | [Windows installation](docs/windows-installation.md) |
-| macOS Apple Silicon | `Proxya-macos-arm64.tar.gz` | [macOS installation](docs/mac-installation.md), [Russian guide](docs/mac-установка.md) |
+| Windows x64 | `Proxya_1.1.0_x64-setup.exe` | [Windows installation](docs/windows-installation.md) |
+| macOS Apple Silicon | `Proxya-macos-arm64.dmg` or `Proxya-macos-arm64.tar.gz` | [macOS installation](docs/mac-installation.md), [Russian guide](docs/mac-установка.md) |
 
 SHA-256 checksums are included with each release. The Windows installer is
 not Authenticode signed. The macOS app is ad-hoc signed and is not notarized;
@@ -99,9 +99,11 @@ provide UDP tunneling.
 
 ## DNS and connection protection
 
-Selecting Cloudflare, Google, Quad9 or AdGuard enables DNS over HTTPS through
-the proxy. With **No DNS**, the proxy resolves destination names. This option
-sends the destination name in the proxy handshake.
+With **Resolved by the proxy**, the default, the proxy resolves destination
+names. The name travels in the proxy handshake, and masking splits it so that
+no single packet carries it whole. Selecting Cloudflare, Google, Quad9 or
+AdGuard enables DNS over HTTPS through the proxy instead. That adds a lookup
+through the proxy for every new site, about 0.6 s in our tests.
 
 The Windows kill switch blocks traffic outside the permitted tunnel routes
 while it is active. Proxy passwords and account sessions are encrypted on disk
@@ -109,17 +111,28 @@ using a key held in Windows Credential Manager or macOS Keychain.
 
 ### Handshake masking
 
-Optional masking splits the proxy handshake into TCP segments with a short
-pause. This can improve connectivity on networks that filter individual
-packets. Masking does not encrypt the proxy connection or prevent inspection
-of a reassembled stream.
+Masking is on by default. The connection to a SOCKS5 or HTTP proxy is not
+encrypted, and some networks read two things from it: the destination address
+in the proxy handshake, and the site name (TLS server name) in the first packet
+inside the stream. Masking splits both across two TCP segments with a random
+10–30 ms pause, at a random point inside the address or name, so no single
+packet carries either of them whole.
 
-Recorded connection test using the same proxy and network link:
+The greeting, sign-in and request are sent together without waiting for each
+reply, so a connection opens about 0.4 s faster than without masking. Proxies
+that need the step-by-step exchange are detected automatically.
 
-| | Connections that completed |
-| --- | --- |
-| Handshake in one packet | 1 of 6 |
-| Handshake split in two, 10 ms apart | 6 of 6 |
+Masking does not encrypt the proxy connection or prevent inspection of a
+reassembled stream.
+
+Recorded test on a network that filters individual packets, same proxies and
+link:
+
+| Destination | Without masking | With masking |
+| --- | --- | --- |
+| Telegram data centers, ISP proxy | 0 of 12 | 12 of 12 |
+| Instagram over TLS, ISP proxy | 0 of 4 | 4 of 4 |
+| Telegram and Instagram, residential proxy | 0 of 9 | 20 of 20 |
 
 Results describe that test and depend on the network and filtering method.
 
@@ -128,8 +141,12 @@ Results describe that test and depend on the network and filtering method.
 - The kill switch is available on Windows. It is not available on macOS.
 - The macOS build supports Apple Silicon. Intel Macs are not supported.
 - IPv6 is disabled by default. Enable it only if your proxy supports IPv6.
-- Another VPN may conflict with tunnel routing or DNS. System proxy mode is
-  available for applications that need to run alongside a VPN.
+- Another VPN may take precedence over the tunnel. On Windows, Proxya checks
+  which adapter carries the traffic after connecting, and if another VPN does,
+  it disconnects with an explanation instead of showing a connection that is
+  not in effect. Beside another VPN, use system proxy mode: with **Only the
+  chosen** apps, the selected apps use the proxy and the rest stay on the other
+  VPN.
 - Reachable destinations and ports depend on your proxy provider's policies.
 
 ## Documentation and support

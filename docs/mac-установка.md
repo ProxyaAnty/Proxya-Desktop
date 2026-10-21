@@ -6,10 +6,11 @@ Gatekeeper может сказать, что разработчик не под�
 
 ## Установка
 
-1. Скачайте `Proxya-macos-arm64.tar.gz` со страницы
-   [релизов](https://github.com/ProxyaAnty/Proxya-Desktop/releases/latest) и
-   сверьте SHA-256 со значением, опубликованным рядом с релизом.
-2. Распакуйте и перенесите **Proxya** в **Программы**.
+1. Скачайте `Proxya-macos-arm64.dmg` (или `Proxya-macos-arm64.tar.gz`) со
+   страницы [релизов](https://github.com/ProxyaAnty/Proxya-Desktop/releases/latest)
+   и сверьте SHA-256 со значением, опубликованным рядом с релизом.
+2. Откройте образ диска (или распакуйте архив) и перенесите **Proxya** в
+   **Программы**.
 3. В Терминале один раз:
 
    ```bash

@@ -6,10 +6,11 @@ or that the application is damaged after download.
 
 ## Install
 
-1. Download `Proxya-macos-arm64.tar.gz` from
+1. Download `Proxya-macos-arm64.dmg` (or `Proxya-macos-arm64.tar.gz`) from
    [Releases](https://github.com/ProxyaAnty/Proxya-Desktop/releases/latest) and
    verify its SHA-256 against the value published with the release.
-2. Extract it and move **Proxya** into **Applications**.
+2. Open the disk image (or extract the archive) and move **Proxya** into
+   **Applications**.
 3. In Terminal, once:
 
    ```bash

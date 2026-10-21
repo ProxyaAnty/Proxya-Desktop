@@ -2,7 +2,7 @@
 
 ## Install
 
-1. Download `Proxya_1.0.0_x64-setup.exe` from
+1. Download `Proxya_1.1.0_x64-setup.exe` from
    [Releases](https://github.com/ProxyaAnty/Proxya-Desktop/releases/latest) and
    verify its SHA-256 against the value published with the release.
 2. Run the installer. It installs for the whole machine, into
@@ -30,8 +30,15 @@ filters, so the machine is never left without a network.
 
 ## Running beside another VPN
 
-Two tunnels with strict routing on one machine break each other's DNS. That is
-expected rather than a bug. Use system proxy mode beside another VPN.
+Two tunnels on one machine compete for the routes, and the one with narrower
+routes wins. If another VPN takes the traffic, Proxya disconnects the tunnel
+with an explanation and releases the kill switch, rather than showing a
+connection that is not in effect.
+
+Beside another VPN, use system proxy mode. Direct connections then resolve
+names through Windows itself, so they keep working through the other VPN. With
+**Only the chosen** apps, the selected apps use the proxy and everything else
+stays on the other VPN.
 
 ## Where data lives
 
